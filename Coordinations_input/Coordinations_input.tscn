@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Coordinations_input/Coordinations_input.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Pixolletta8px.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Sounds/input_error.wav" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 21
+font_data = ExtResource( 2 )
+
+[node name="Coordinations_input" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="X_input" type="LineEdit" parent="."]
+margin_left = -128.0
+margin_top = -32.0
+margin_right = 128.0
+margin_bottom = -8.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+max_length = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Y_input" type="LineEdit" parent="."]
+margin_left = -128.0
+margin_top = 8.0
+margin_right = 128.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+align = 1
+max_length = 3
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="X_label" type="Label" parent="Labels"]
+margin_left = -184.0
+margin_top = -32.0
+margin_right = -128.0
+custom_fonts/font = SubResource( 3 )
+text = "X"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Y_label" type="Label" parent="Labels"]
+margin_left = -184.0
+margin_top = 8.0
+margin_right = -128.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 3 )
+text = "Y"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Error" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/storm_spawn.wav-ce2ebad91125197728fccc3f859b39ec.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/storm_spawn.wav"
+dest_files=[ "res://.import/storm_spawn.wav-ce2ebad91125197728fccc3f859b39ec.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

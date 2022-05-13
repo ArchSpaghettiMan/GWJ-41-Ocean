@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Events/Storm/Storm.gd" type="Script" id=1]
+[ext_resource path="res://Events/Storm/Damage_timer/Damage_timer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sprites/Storm.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sounds/storm_spawn.wav" type="AudioStream" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="Storm" type="Node2D" groups=["Storm"]]
+position = Vector2( 512, 272 )
+script = ExtResource( 1 )
+damage_timer_path = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Spawn_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]

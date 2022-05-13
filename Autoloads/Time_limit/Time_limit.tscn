@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Autoloads/Time_limit/Time_limit.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Pixolletta8px.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="Time_limit" type="Timer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Start_game" type="Label" parent="CanvasLayer"]
+visible = false
+margin_left = 224.0
+margin_top = 128.0
+margin_right = 1048.0
+margin_bottom = 601.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "- Your mission is to catch as much fish as possible by leading the ships to coordinates!
+
+- You can move the ship(s) by choosing them them through clicking on them, inputing the coordinates, then press Space or Enter. You can also deslect them by clicking them again.
+
+- There will be storms where ships can get destroyed and fishing points where they can catch more.
+
+- To claim the fish you must guide the ships to the dock, which is also the place where you can buy new ships!
+
+- Beware that ships can crash into objects and can not catch fish while in dock or moving!
+
+                              Press A to start!"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="End_game" type="Label" parent="CanvasLayer"]
+margin_left = 232.0
+margin_top = 72.0
+margin_right = 1056.0
+margin_bottom = 269.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Congratulations! You got "
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="CanvasLayer"]
+margin_left = 224.0
+margin_top = 304.0
+margin_right = 1048.0
+margin_bottom = 553.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Neuland_Ink : Pixoletta - Font
+
+Benjamin Tissot: Slow Motion - Background Music
+
+Gaming Sound Fx: Error - Sound Effect
+DK Marble: Thunder - Sound Effect
+Sound Fx: Fishing Reel - Sound Effect
+Mister Sound: Explosion - Sound Effect"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="." to="." method="_on_Time_limit_timeout"]

@@ -1,0 +1,309 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://World/World.gd" type="Script" id=1]
+[ext_resource path="res://Dock/Dock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Coordinations_input/Coordinations_input.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Events/Fishing_points/Fishing_point.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Announcement_label/Announcement_label.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Events/Storm/Storm.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Sprites/Fish.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Timer.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Fonts/Pixolletta8px.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Assets/Sprites/Ruler.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 21
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 21
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 10
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+font_data = ExtResource( 9 )
+
+[node name="World" type="Node2D" groups=["World"]]
+script = ExtResource( 1 )
+storm_path = ExtResource( 6 )
+fishing_point_path = ExtResource( 4 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top_screen" type="Control" parent="Control"]
+margin_right = 1280.0
+margin_bottom = 624.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="ColorRect" parent="Control/Top_screen"]
+margin_right = 1280.0
+margin_bottom = 624.0
+mouse_filter = 2
+color = Color( 0.596078, 0.913725, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fish_amount" type="Control" parent="Control/Top_screen"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fish_amount_label" type="Label" parent="Control/Top_screen/Fish_amount"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 784.0
+margin_top = 552.0
+margin_right = 840.0
+margin_bottom = 584.0
+custom_colors/font_color = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Control/Top_screen/Fish_amount"]
+position = Vector2( 800, 608 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="Time_limit" type="Control" parent="Control/Top_screen"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time_limit_label" type="Label" parent="Control/Top_screen/Time_limit"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 416.0
+margin_top = 552.0
+margin_right = 472.0
+margin_bottom = 584.0
+custom_colors/font_color = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Control/Top_screen/Time_limit"]
+position = Vector2( 424, 608 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+
+[node name="Ruler" type="Control" parent="Control/Top_screen"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Top_screen/Ruler"]
+margin_right = 1280.0
+margin_bottom = 624.0
+mouse_filter = 2
+texture = ExtResource( 10 )
+
+[node name="Y_coordinates" type="Node2D" parent="Control/Top_screen/Ruler"]
+
+[node name="Label" type="Label" parent="Control/Top_screen/Ruler/Y_coordinates"]
+margin_left = 16.0
+margin_top = 192.0
+margin_right = 41.0
+margin_bottom = 208.0
+custom_colors/font_color = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "200"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control/Top_screen/Ruler/Y_coordinates"]
+margin_left = 16.0
+margin_top = 392.0
+margin_right = 41.0
+margin_bottom = 408.0
+custom_colors/font_color = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "400"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Control/Top_screen/Ruler/Y_coordinates"]
+margin_left = 16.0
+margin_top = 592.0
+margin_right = 41.0
+margin_bottom = 608.0
+custom_colors/font_color = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "600"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="X_coordinates" type="Node2D" parent="Control/Top_screen/Ruler"]
+
+[node name="Label" type="Label" parent="Control/Top_screen/Ruler/X_coordinates"]
+margin_left = 188.0
+margin_top = 16.0
+margin_right = 213.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "200"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Control/Top_screen/Ruler/X_coordinates"]
+margin_left = 388.0
+margin_top = 16.0
+margin_right = 413.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "400"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control/Top_screen/Ruler/X_coordinates"]
+margin_left = 588.0
+margin_top = 16.0
+margin_right = 613.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "600"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Control/Top_screen/Ruler/X_coordinates"]
+margin_left = 788.0
+margin_top = 16.0
+margin_right = 813.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "800"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="Control/Top_screen/Ruler/X_coordinates"]
+margin_left = 988.0
+margin_top = 16.0
+margin_right = 1013.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "1000"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="Control/Top_screen/Ruler/X_coordinates"]
+margin_left = 1188.0
+margin_top = 16.0
+margin_right = 1213.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.419608, 0.419608, 0.419608, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "1200"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom_screen" type="Control" parent="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/Bottom_screen"]
+margin_top = 624.0
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coordinations_input" parent="Control/Bottom_screen" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+margin_left = 620.0
+margin_top = 632.0
+margin_right = 620.0
+margin_bottom = 632.0
+
+[node name="Announcement_label" parent="Control/Bottom_screen" instance=ExtResource( 5 )]
+margin_left = 832.0
+margin_top = 640.0
+margin_right = 1216.0
+margin_bottom = 704.0
+
+[node name="Upgrade_label" type="Label" parent="Control/Bottom_screen"]
+margin_left = 64.0
+margin_top = 640.0
+margin_right = 448.0
+margin_bottom = 704.0
+custom_fonts/font = SubResource( 3 )
+text = "Buy Ship (A) - 15 Fishes"
+align = 1
+valign = 1
+
+[node name="Ships" type="Node2D" parent="." groups=["ship_manager"]]
+
+[node name="Events" type="Node2D" parent="."]
+
+[node name="Fishing_points" type="Node2D" parent="Events"]
+
+[node name="Storm" type="Node2D" parent="Events"]
+
+[node name="Dock" parent="." instance=ExtResource( 2 )]
+position = Vector2( 640, 312 )
